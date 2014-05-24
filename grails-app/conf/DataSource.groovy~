@@ -1,8 +1,10 @@
 dataSource {
     pooled = true
-    driverClassName = "org.h2.Driver"
-    username = "sa"
-    password = ""
+    driverClassName = "com.mysql.jdbc.Driver"
+    dialect = "org.hibernate.dialect.MySQL5InnoDBDialect"
+    jndiname = "java:comp/env/jdbc/mydb"
+    username = "bd9bd81e764357"
+    password = "d13bad27"
 }
 hibernate {
     cache.use_second_level_cache = true
@@ -28,7 +30,16 @@ environments {
     production {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:h2:prodDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
+            url = "jdbc:mysql://us-cdbr-cb-east-01.cleardb.net:3306/db_povmt"
+            driverClassName = "com.mysql.jdbc.Driver"
+			dialect = "org.hibernate.dialect.MySQL5InnoDBDialect"
+			jndiname = "java:comp/env/jdbc/mydb"
+            // Print Hibernate SQL to the console
+			logSql = true
+		 
+			// Credentials
+			username = "bd9bd81e764357"
+		    password = "d13bad27"
             properties {
                maxActive = -1
                minEvictableIdleTimeMillis=1800000

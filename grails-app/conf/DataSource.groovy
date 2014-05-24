@@ -31,6 +31,9 @@ environments {
         dataSource {
             dbCreate = "update"
             url = "jdbc:mysql://us-cdbr-cb-east-01.cleardb.net:3306/db_povmt"
+            driverClassName = "com.mysql.jdbc.Driver"
+			dialect = "org.hibernate.dialect.MySQL5InnoDBDialect"
+			jndiname = "java:comp/env/jdbc/db_povmt"
             // Print Hibernate SQL to the console
 			logSql = true
 		 
