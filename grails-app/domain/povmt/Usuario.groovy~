@@ -1,0 +1,14 @@
+package povmt
+
+import grails.rest.*
+
+@Resource(uri='/usuarios')
+class Usuario {
+
+	String login
+	static hasMany = [atividades: Atividade]
+
+    static constraints = {
+    	login(unique:true)
+    }
+}
